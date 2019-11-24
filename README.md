@@ -11,6 +11,7 @@ It can also calculate intermediate files.
 
 ## usage
 
+```
 usage: exr_construct.py [-h] [-s STEP] [-o OUTPUT] [-i INTERVAL] [-I] path
 
 positional arguments:
@@ -25,8 +26,8 @@ optional arguments:
                         interval for intermediate files (must be a multiple of
                         step)
   -I, --intermediate    compute intermediate exr files
-
+```
 
 ## usage example
 
-
+python exr_construct.py -s 10 -o png/ -i 50 -I exr/
