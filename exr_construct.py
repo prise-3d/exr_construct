@@ -45,13 +45,14 @@ def exr_const(path, inter, step = 1, output = "/tmp", intermediate = False):
             greenstr = im.channel('G',pt)
             bluestr = im.channel('B',pt)
 
-            red = numpy.fromstring(redstr, dtype = numpy.float32)            
+            #red = numpy.fromstring(redstr, dtype = numpy.float32)            
+            red = numpy.frombuffer(redstr, dtype= numpy.float32)
             red.shape = (size[1], size[0])
 
-            green = numpy.fromstring(greenstr, dtype = numpy.float32)
+            green = numpy.frombuffer(greenstr, dtype = numpy.float32)
             green.shape = (size[1], size[0])
 
-            blue = numpy.fromstring(bluestr, dtype = numpy.float32)
+            blue = numpy.frombuffer(bluestr, dtype = numpy.float32)
             blue.shape = (size[1], size[0])
 
             if n == 0 :
