@@ -84,9 +84,10 @@ def exr_const(path, inter, step = 1, output = "/tmp", intermediate = False):
                 exr.writePixels({'R': data_red, 'G': data_green, 'B': data_blue})
                 """
 
-    # final save
-    out_file_name = output+"/out_final.exr"
-    saveDataToExr(redres/n,greenres/n,blueres/n,size[0],size[1],out_file_name)
+            # last element = final save    
+            if element == listdir[-1] : 
+                out_file_name = output+"/out_final.exr"
+                saveDataToExr(redres/n,greenres/n,blueres/n,size[0],size[1],out_file_name)
 
 
 if __name__ == "__main__" :
@@ -97,8 +98,8 @@ if __name__ == "__main__" :
                     help="step used for rendering")
     parser.add_argument("-o", "--output",help="output directory")                
     parser.add_argument("-i", "--interval", type=int,
-                    help="interval for extract (must be a multiple of step)")  
-    parser.add_argument("-I", "--intermediate", help="increase output verbosity",
+                    help="interval for intermediate files (must be a multiple of step)")  
+    parser.add_argument("-I", "--intermediate", help="compute intermediate exr files",
                     action="store_true")                              
     args = parser.parse_args()  
 
