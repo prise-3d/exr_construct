@@ -117,5 +117,8 @@ if __name__ == "__main__" :
     print("inter = "+str(inter)+ " " +str(type(inter)))
     print("starting...\n dir = "+path)
     
+    # if output folder path does not exist
+    if not os.path.exists(out):
+        os.makedirs(out)
 
     exr_const(path,inter,step,out,intermediate)
