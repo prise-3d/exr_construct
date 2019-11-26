@@ -69,21 +69,9 @@ def exr_const(path, inter, step = 1, output = "/tmp", intermediate = False):
             
             if intermediate and ( (n*step) % inter ) == 0 :   
 
+               # intermediate save 
                 out_file_name = output+"/out_"+ f"{(n*step):05d}" +".exr"
                 saveDataToExr(redres/n,greenres/n,blueres/n,size[0],size[1],out_file_name)
-                # intermediate save
-                """
-                data_red = (redres/n).tostring()  
-                data_green = (greenres/n).tostring()      
-                data_blue = (blueres/n).tostring() 
-
-                
-                out_file_name = output+"/out_"+ f"{(n*step):05d}" +".exr"
-                exr = OpenEXR.OutputFile(out_file_name, OpenEXR.Header(size[0],size[1]))  
-
-                print("  >> write "+out_file_name)
-                exr.writePixels({'R': data_red, 'G': data_green, 'B': data_blue})
-                """
 
             # last element = final save    
             if element == listdir[-1] : 
